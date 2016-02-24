@@ -51,12 +51,12 @@ endfunction
 " Find specified module absolute path
 function! s:find_module(root, module_name)
   " try to find the module file in sub directories
-  let ff = findfile(a:module_name . '.py', a:root . '/**')
+  let ff = findfile(a:module_name . '.py', a:root . '/*')
   if len(ff) != 0
     return fnamemodify(ff, ':p:r')
   endif
   " try to find module directory in sub directories
-  let fd = finddir(a:module_name, a:root . '/**')
+  let fd = finddir(a:module_name, a:root . '/*')
   if len(fd) != 0
     return fnamemodify(ff, ':p')
   endif
